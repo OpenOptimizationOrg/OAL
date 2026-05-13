@@ -1,10 +1,10 @@
 from .schema import (
-    Problem,
-    Suite,
-    Generator,
+    Algorithm,
     Implementation,
     Library,
-    YesNoSome,
+    Supports,
+    FeatureSupport,
+    SupportsType,
     Link,
     Reference,
     Variable,
@@ -13,12 +13,14 @@ from .schema import (
 )
 
 __all__ = [
-    "Problem",
+    "Algorithm",
     "Suite",
     "Generator",
     "Implementation",
     "Library",
-    "YesNoSome",
+    "Supports",
+    "FeatureSupport",
+    "SupportsType",
     "Link",
     "Reference",
     "Constraint",

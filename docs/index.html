@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css" rel="stylesheet" integrity="sha384-gC2LYLqCExndkNE9hTLhmEXvk8ZgIf42nRengHFbC9uaws2Ho0TW+ENGe4w15AHy" crossorigin="anonymous">
+<link rel="stylesheet" href="table_styles.css">
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha384-NXgwF8Kv9SSAr+jemKKcbvQsz+teULH/a5UNJvZc6kP47hZgl62M1vGnw6gHQhb1" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js" integrity="sha384-RZEqG156bBQSxYY9lwjUz/nKVkqYj/QNK9dEjjyJ/EVTO7ndWwk6ZWEkvaKdRm/U" crossorigin="anonymous"></script>
+
+<style>
+    thead input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+</style>
+
+</head>
+
+<body>
+
+<h2>OPL &ndash; Optimisation Algorithm Library</h2>
+
+<p>
+Submit algorithms and corrections on <a target="_blank" href="https://github.com/OpenOptimizationOrg/OAL/">GitHub</a> with pull requests / issues (more options coming soon).
+</p>
+<section class="table-shell">
+    <div class="table-toolbar">
+        <details class="tag-toolbar-disclosure" open><summary class="toolbar-title">Filter By Tags</summary><div class="tag-toolbar-actions"><button type="button" class="toolbar-btn" id="clear-tag-filter">Clear tag filter</button><span class="tag-filter-status" id="active-tag-filter">No active tag filter</span></div><div class="tag-groups"><section class="tag-group"><h4 class="tag-group-title">Performance</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Anytime">Anytime</button></div></section><section class="tag-group"><h4 class="tag-group-title">Methodology</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Gradient-free">Gradient-free</button></div></section><section class="tag-group"><h4 class="tag-group-title">Families</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Evolutionary">Evolutionary</button></div></section></div></details>
+        <details class="column-toolbar-disclosure">
+            <summary class="toolbar-title">Toggle Visible Columns</summary>
+            <div class="toolbar-actions">
+                <button type="button" class="toolbar-btn" id="show-all-columns">Show all</button>
+                <button type="button" class="toolbar-btn" id="hide-all-columns">Hide all</button>
+            </div>
+            <div class="column-controls">
+                <label class="column-chip"><input class="col-toggle" type="checkbox" data-column="0"><span>ID</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="1" checked><span>Name</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="2" checked><span>Objectives</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="3" checked><span>Variable Types</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="4" checked><span># Variables</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="5" checked><span>Constraint Types</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="6" checked><span>Dynamics</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="7" checked><span>Noise</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="8" checked><span>Modality</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="9" checked><span>Partial Eval.</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="10" checked><span>Indep. Objectives</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="11" checked><span>Budget</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="12"><span>Fidelity Levels</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="13"><span>Full Name</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="14"><span>Description</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="15" checked><span>Tags</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="16"><span>References</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="17"><span>Implementations</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="18"><span>Code Examples</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="19"><span>Source</span></label>
+            </div>
+        </details>
+    </div>
+    <div class="table-wrap">
+        <table class="dataframe display compact display styled-table" id="algorithms">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Objectives</th>
+      <th>Variable Types</th>
+      <th># Variables</th>
+      <th>Constraint Types</th>
+      <th>Dynamics</th>
+      <th>Noise</th>
+      <th>Modality</th>
+      <th>Partial Eval.</th>
+      <th>Indep. Objectives</th>
+      <th>Budget</th>
+      <th>Fidelity Levels</th>
+      <th>Full Name</th>
+      <th>Description</th>
+      <th>Tags</th>
+      <th>References</th>
+      <th>Implementations</th>
+      <th>Code Examples</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alg_nies</td>
+      <td>NIES</td>
+      <td>1</td>
+      <td>integer</td>
+      <td>1–5000</td>
+      <td>box</td>
+      <td></td>
+      <td></td>
+      <td>unimodal</td>
+      <td></td>
+      <td></td>
+      <td>100–10000000000</td>
+      <td></td>
+      <td>Natural Integer Evolutionary Strategies</td>
+      <td>A natural-gradient based evolutionary algorithm for integer-space optimization</td>
+      <td><button type="button" class="table-tag" data-tag="Anytime">Anytime</button> <button type="button" class="table-tag" data-tag="Evolutionary">Evolutionary</button> <button type="button" class="table-tag" data-tag="Gradient-free">Gradient-free</button></td>
+      <td></td>
+      <td>impl_integeres</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+<tfoot><tr><th>ID</th> <th>Name</th> <th>Objectives</th> <th>Variable Types</th> <th># Variables</th> <th>Constraint Types</th> <th>Dynamics</th> <th>Noise</th> <th>Modality</th> <th>Partial Eval.</th> <th>Indep. Objectives</th> <th>Budget</th> <th>Fidelity Levels</th> <th>Full Name</th> <th>Description</th> <th>Tags</th> <th>References</th> <th>Implementations</th> <th>Code Examples</th> <th>Source</th></tr></tfoot></table>
+    </div>
+</section>
+
+
+<script>
+
+const rangeFilters = new Map();
+const RANGE_FILTER_COLUMN_NAMES = new Set(['objectives', '# variables']);
+const activeTagFilters = new Set();
+
+const table = new DataTable('#algorithms', {
+    layout: {
+        topStart: 'search',
+        topEnd: null,
+        bottomStart: 'info',
+        bottom: 'paging',
+        bottomEnd: 'pageLength'
+    },
+    lengthMenu: [10, 15, 25, 50, -1],
+    initComplete: function () {
+        this.api()
+            .columns()
+            .every(function () {
+                const column = this;
+                const title = column.footer().textContent;
+                const input = document.createElement('input');
+                input.placeholder = `Filter ${title}`;
+                column.footer().replaceChildren(input);
+
+                input.addEventListener('keyup', () => {
+                    const titleLower = title.trim().toLowerCase();
+                    if (RANGE_FILTER_COLUMN_NAMES.has(titleLower)) {
+                        const value = input.value.trim();
+                        if (value) {
+                            rangeFilters.set(column.index(), value);
+                        } else {
+                            rangeFilters.delete(column.index());
+                        }
+                        if (column.search() !== '') column.search('');
+                        table.draw();
+                        return;
+                    }
+                    if (column.search() !== input.value) {
+                        column.search(input.value).draw();
+                    }
+                });
+
+                input.addEventListener('click', (e) => e.stopPropagation());
+            });
+    }
+});
+
+// Move filter row into thead
+const footerRow = document.querySelector('#algorithms tfoot tr');
+const thead = document.querySelector('#algorithms thead');
+if (footerRow && thead) thead.appendChild(footerRow);
+
+// Range-aware filtering
+const parseNumber = (v) => { const n = Number(v); return Number.isFinite(n) ? n : null; };
+
+const normalizeTag = (tag) => (tag || '').trim().toLowerCase();
+
+const getTagColumnIndex = () => table.columns().header().toArray().findIndex(
+    (header) => (header.textContent || '').trim() === 'Tags'
+);
+
+const extractTagsFromCell = (cellHtml) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = cellHtml || '';
+    const tagged = [...wrapper.querySelectorAll('.table-tag')]
+        .map((el) => normalizeTag(el.dataset.tag || el.textContent || ''))
+        .filter(Boolean);
+    if (tagged.length > 0) return tagged;
+
+    // Fallback for non-chip text content.
+    return (wrapper.textContent || '')
+        .split(/\||,|;/)
+        .map((part) => normalizeTag(part))
+        .filter(Boolean);
+};
+
+const extractTagsFromRowNode = (rowNode, tagColumnIndex) => {
+    if (!rowNode || tagColumnIndex < 0) {
+        return [];
+    }
+
+    const cell = rowNode.children?.[tagColumnIndex];
+    if (!cell) {
+        return [];
+    }
+
+    const tagged = [...cell.querySelectorAll('.table-tag')]
+        .map((el) => normalizeTag(el.dataset.tag || el.textContent || ''))
+        .filter(Boolean);
+
+    if (tagged.length > 0) {
+        return tagged;
+    }
+
+    return (cell.textContent || '')
+        .split(/\||,|;/)
+        .map((part) => normalizeTag(part))
+        .filter(Boolean);
+};
+
+const extractTagsFromRowData = (rowData, tagColumnIndex) => {
+    if (!rowData) {
+        return [];
+    }
+
+    if (Array.isArray(rowData)) {
+        return extractTagsFromCell(rowData[tagColumnIndex] || '');
+    }
+
+    if (typeof rowData === 'object') {
+        const byDisplayKey = rowData.Tags;
+        if (byDisplayKey) {
+            return extractTagsFromCell(byDisplayKey);
+        }
+    }
+
+    return [];
+};
+
+const extractTagsFromAoDataRow = (aoRow, tagColumnIndex) => {
+    if (!aoRow || tagColumnIndex < 0) {
+        return [];
+    }
+
+    const cellNode = aoRow.anCells?.[tagColumnIndex] || aoRow.nTr?.children?.[tagColumnIndex];
+    if (!cellNode) {
+        return [];
+    }
+
+    const tagged = [...cellNode.querySelectorAll('.table-tag')]
+        .map((el) => normalizeTag(el.dataset.tag || el.textContent || ''))
+        .filter(Boolean);
+
+    if (tagged.length > 0) {
+        return tagged;
+    }
+
+    return (cellNode.textContent || '')
+        .split(/\||,|;/)
+        .map((part) => normalizeTag(part))
+        .filter(Boolean);
+};
+
+const rangeContainsValue = (cellText, target) => {
+    const compact = (cellText || '').replace(/\s+/g, '');
+    if (!compact) return false;
+    if (/^[-+]?\d+(\.\d+)?$/.test(compact)) return parseNumber(compact) === target;
+    const ge = compact.match(/^>=([-+]?\d+(\.\d+)?)$/);
+    if (ge) { const b = parseNumber(ge[1]); return b !== null && target >= b; }
+    const le = compact.match(/^<=([-+]?\d+(\.\d+)?)$/);
+    if (le) { const b = parseNumber(le[1]); return b !== null && target <= b; }
+    const range = compact.match(/^([-+]?\d+(\.\d+)?)\u2013([-+]?\d+(\.\d+)?)$/);
+    if (range) {
+        const lo = parseNumber(range[1]), hi = parseNumber(range[3]);
+        return lo !== null && hi !== null && target >= lo && target <= hi;
+    }
+    return false;
+};
+
+const matchesRangeFilter = (cellText, rawFilter) => {
+    const filter = (rawFilter || '').trim();
+    if (!filter) return true;
+    const numericFilter = parseNumber(filter);
+    if (numericFilter !== null) return rangeContainsValue(cellText, numericFilter);
+    return (cellText || '').toLowerCase().includes(filter.toLowerCase());
+};
+
+if (!window.__oalRangeFilterRegistered) {
+    window.__oalRangeFilterRegistered = true;
+    DataTable.ext.search.push((settings, data, dataIndex, rowData) => {
+        if (settings.nTable?.id !== 'algorithms') return true;
+
+        if (activeTagFilters.size > 0) {
+            const tagColumnIndex = getTagColumnIndex();
+            if (tagColumnIndex >= 0) {
+                let rowTags = [];
+                const aoRow = settings.aoData?.[dataIndex];
+
+                // 1) DataTables internal row/cell nodes.
+                rowTags = extractTagsFromAoDataRow(aoRow, tagColumnIndex);
+
+                // 2) Callback rowData path.
+                if (rowTags.length === 0) {
+                    rowTags = extractTagsFromRowData(rowData, tagColumnIndex);
+                }
+
+                // 3) Table API row data path.
+                if (rowTags.length === 0) {
+                    const rowApi = table.row(dataIndex);
+                    rowTags = extractTagsFromRowData(rowApi?.data?.(), tagColumnIndex);
+                }
+
+                // 4) Search callback data fallback.
+                if (rowTags.length === 0) {
+                    if (Array.isArray(data)) {
+                        rowTags = extractTagsFromCell(data[tagColumnIndex] || '');
+                    } else if (data && typeof data === 'object') {
+                        rowTags = extractTagsFromCell(data.Tags || '');
+                    }
+                }
+
+                const matchesAllSelected = [...activeTagFilters].every((selectedTag) => rowTags.includes(selectedTag));
+                if (!matchesAllSelected) {
+                    return false;
+                }
+            }
+        }
+
+        for (const [colIdx, rawFilter] of rangeFilters.entries()) {
+            if (!rawFilter) continue;
+            const cellText = (data[colIdx] || '').replace(/<[^>]+>/g, '');
+            if (!matchesRangeFilter(cellText, rawFilter)) return false;
+        }
+        return true;
+    });
+}
+
+const syncActiveTagUi = () => {
+    const selected = [...activeTagFilters];
+
+    const status = document.getElementById('active-tag-filter');
+    if (status) {
+        status.textContent = selected.length > 0
+            ? `Active tag filter (AND): ${selected.join(' + ')}`
+            : 'No active tag filter';
+    }
+
+    document.querySelectorAll('.tag-filter-chip').forEach((chip) => {
+        chip.classList.toggle('is-active', activeTagFilters.has(normalizeTag(chip.dataset.tag)));
+    });
+
+    document.querySelectorAll('#algorithms .table-tag').forEach((chip) => {
+        chip.classList.toggle('is-active', activeTagFilters.has(normalizeTag(chip.dataset.tag)));
+    });
+};
+
+const toggleActiveTagFilter = (tagValue) => {
+    const normalized = normalizeTag(tagValue);
+    if (!normalized) {
+        return;
+    }
+
+    if (activeTagFilters.has(normalized)) {
+        activeTagFilters.delete(normalized);
+    } else {
+        activeTagFilters.add(normalized);
+    }
+
+    syncActiveTagUi();
+    table.draw();
+};
+
+// Column toggle chips
+document.querySelectorAll('.col-toggle').forEach((checkbox) => {
+    const colIndex = parseInt(checkbox.dataset.column, 10);
+    const col = table.column(colIndex);
+    col.visible(checkbox.checked);
+    const chip = checkbox.closest('.column-chip');
+    if (chip) chip.classList.toggle('is-off', !checkbox.checked);
+
+    checkbox.addEventListener('change', () => {
+        col.visible(checkbox.checked);
+        if (chip) chip.classList.toggle('is-off', !checkbox.checked);
+    });
+});
+
+document.getElementById('show-all-columns')?.addEventListener('click', () => {
+    document.querySelectorAll('.col-toggle').forEach((cb) => {
+        cb.checked = true;
+        table.column(parseInt(cb.dataset.column, 10)).visible(true);
+        cb.closest('.column-chip')?.classList.remove('is-off');
+    });
+});
+
+document.getElementById('hide-all-columns')?.addEventListener('click', () => {
+    document.querySelectorAll('.col-toggle').forEach((cb) => {
+        cb.checked = false;
+        table.column(parseInt(cb.dataset.column, 10)).visible(false);
+        cb.closest('.column-chip')?.classList.add('is-off');
+    });
+});
+
+document.getElementById('clear-tag-filter')?.addEventListener('click', () => {
+    activeTagFilters.clear();
+    syncActiveTagUi();
+    table.draw();
+});
+
+document.querySelectorAll('.tag-filter-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+        toggleActiveTagFilter(chip.dataset.tag || '');
+    });
+});
+
+document.addEventListener('click', (event) => {
+    const tag = event.target.closest('#algorithms .table-tag');
+    if (!tag) return;
+    event.preventDefault();
+    toggleActiveTagFilter(tag.dataset.tag || tag.textContent || '');
+});
+
+</script>
+
+
+</body>
+</html>
+
