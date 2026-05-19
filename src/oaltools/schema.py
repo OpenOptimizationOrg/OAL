@@ -1,6 +1,6 @@
 from enum import Enum
 from typing_extensions import Self
-from pydantic import BaseModel, RootModel, ConfigDict, model_validator
+from pydantic import BaseModel, RootModel, ConfigDict
 
 from .supports import Supports
 from .yesnosome import YesNoSome
@@ -23,7 +23,6 @@ class Link(BaseModel):
 class Thing(BaseModel):
     type: OPLType
     model_config = ConfigDict(extra="allow")
-
 
 class Objectives(RootModel):
     root: int | set[int] | ValueRange = 0
@@ -71,8 +70,11 @@ class VariableType(Enum):
 
 class Variable(BaseModel):
     type: VariableType
-    supports: FeatureSupport | None = None
+    supports: Supports | None = None
     description: str | None = None
+
+    def __hash__(self):
+        return hash((self.type, self.supports, self.description))
 
 class ConstraintType(Enum):
     box = "box"
@@ -81,15 +83,24 @@ class ConstraintType(Enum):
 
 class Constraint(BaseModel):
     type: ConstraintType
-    support: FeatureSupport | None = None
+    supports: Supports | None = None
     hard: bool | None = None
     equality: bool | None = None
+    description: str | None = None
+
+    def __hash__(self):
+        return hash((self.type, self.supports, self.hard, self.equality, self.description))
 
 class SupportsType(BaseModel):
     type: str
-    support: FeatureSupport | None = None
+    supports: Supports | None = None
+    description: str | None = None
+
+    def __hash__(self):
+        return hash((self.type, self.supports, self.description))
 
 class Algorithm(Thing):
+    type: OPLType = OPLType.algorithm
     name: str
     long_name: str | None = None
     description: str | None = None
@@ -101,11 +112,11 @@ class Algorithm(Thing):
     number_variables: ValueRange | None = None
     variable_types: set[Variable]
     constraint_types: set[Constraint]
-    dynamics: set[SupportsType] | None
-    noise: set[SupportsType] | None
+    dynamics: set[SupportsType] | None = None
+    noise: set[SupportsType] | None = None
     partial_evaluation: FeatureSupport | None = None
     can_evaluate_objectives_independently: FeatureSupport | None = None
-    modality_types: set[SupportsType] | None
+    modality_types: set[SupportsType] | None = None
     fidelity_levels: ValueRange | None = None
     code_examples: set[str] | None = None
     source: set[str] | None = None
@@ -113,13 +124,13 @@ class Algorithm(Thing):
     def __hash__(self):
         return hash((self.type, self.name))
 
-recommended_tags = {
+recommended_tags = [
     {"performance" : {"Anytime", "Non-Anytime"}},
     {"execution" : {"Parallel", "Sequential", "Expensive"}},
     {"methodology" : {"Gradient-based", "Gradient-free", "Surrogate Model", "Covariance Update", "Population-based", "Single Solution"}},
     {"families" : {"Evolutionary", "Bayesian Optimization", "Simulated Annealing", "Particle Swarm Optimization"}},
     {"variable" : {"Permutation", "Hierarchical", "Mixed"}}
-}
+]
 
 
 class Library(RootModel):

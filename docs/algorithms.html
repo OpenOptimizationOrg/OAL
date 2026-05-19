@@ -1,0 +1,67 @@
+<section class="table-shell">
+    <div class="table-toolbar">
+        <details class="tag-toolbar-disclosure" open><summary class="toolbar-title">Filter By Tags</summary><div class="tag-toolbar-actions"><button type="button" class="toolbar-btn" id="clear-tag-filter">Clear tag filter</button><span class="tag-filter-status" id="active-tag-filter">No active tag filter</span></div><div class="tag-groups"><section class="tag-group"><h4 class="tag-group-title">Performance</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Anytime">Anytime</button></div></section><section class="tag-group"><h4 class="tag-group-title">Methodology</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Gradient-free">Gradient-free</button></div></section><section class="tag-group"><h4 class="tag-group-title">Families</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Evolutionary">Evolutionary</button></div></section></div></details>
+        <details class="column-toolbar-disclosure">
+            <summary class="toolbar-title">Toggle Visible Columns</summary>
+            <div class="toolbar-actions">
+                <button type="button" class="toolbar-btn" id="show-all-columns">Show all</button>
+                <button type="button" class="toolbar-btn" id="hide-all-columns">Hide all</button>
+            </div>
+            <div class="column-controls">
+                <label class="column-chip"><input class="col-toggle" type="checkbox" data-column="0"><span>ID</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="1" checked><span>Name</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="2" checked><span>Objectives</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="3" checked><span>Variable Types</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="4" checked><span># Variables</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="5" checked><span>Constraint Types</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="6" checked><span>Dynamics</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="7" checked><span>Noise</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="8" checked><span>Modality</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="9" checked><span>Partial Eval.</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="10" checked><span>Indep. Objectives</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="11" checked><span>Budget</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="12"><span>Fidelity Levels</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="13"><span>Full Name</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="14"><span>Description</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="15" checked><span>Tags</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="16"><span>References</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="17"><span>Implementations</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="18"><span>Code Examples</span></label><label class="column-chip"><input class="col-toggle" type="checkbox" data-column="19"><span>Source</span></label>
+            </div>
+        </details>
+    </div>
+    <div class="table-wrap">
+        <table class="dataframe display compact display styled-table" id="algorithms">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Objectives</th>
+      <th>Variable Types</th>
+      <th># Variables</th>
+      <th>Constraint Types</th>
+      <th>Dynamics</th>
+      <th>Noise</th>
+      <th>Modality</th>
+      <th>Partial Eval.</th>
+      <th>Indep. Objectives</th>
+      <th>Budget</th>
+      <th>Fidelity Levels</th>
+      <th>Full Name</th>
+      <th>Description</th>
+      <th>Tags</th>
+      <th>References</th>
+      <th>Implementations</th>
+      <th>Code Examples</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alg_nies</td>
+      <td>NIES</td>
+      <td>1</td>
+      <td>integer</td>
+      <td>1–5000</td>
+      <td>box</td>
+      <td></td>
+      <td></td>
+      <td>unimodal</td>
+      <td></td>
+      <td></td>
+      <td>100–10000000000</td>
+      <td></td>
+      <td>Natural Integer Evolutionary Strategies</td>
+      <td>A natural-gradient based evolutionary algorithm for integer-space optimization</td>
+      <td><button type="button" class="table-tag" data-tag="Anytime">Anytime</button> <button type="button" class="table-tag" data-tag="Evolutionary">Evolutionary</button> <button type="button" class="table-tag" data-tag="Gradient-free">Gradient-free</button></td>
+      <td></td>
+      <td>impl_integeres</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+<tfoot><tr><th>ID</th> <th>Name</th> <th>Objectives</th> <th>Variable Types</th> <th># Variables</th> <th>Constraint Types</th> <th>Dynamics</th> <th>Noise</th> <th>Modality</th> <th>Partial Eval.</th> <th>Indep. Objectives</th> <th>Budget</th> <th>Fidelity Levels</th> <th>Full Name</th> <th>Description</th> <th>Tags</th> <th>References</th> <th>Implementations</th> <th>Code Examples</th> <th>Source</th></tr></tfoot></table>
+    </div>
+</section>

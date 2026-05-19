@@ -1,0 +1,50 @@
+alg_nies:
+  can_evaluate_objectives_independently: null
+  code_examples: null
+  constraint_types:
+  - description: null
+    equality: null
+    hard: null
+    supports: null
+    type: box
+  description: A natural-gradient based evolutionary algorithm for integer-space
+    optimization
+  dynamics: null
+  fidelity_levels: null
+  implementations:
+  - impl_integeres
+  long_name: Natural Integer Evolutionary Strategies
+  modality_types:
+  - description: null
+    supports: default
+    type: unimodal
+  name: NIES
+  noise: null
+  number_variables:
+    max: 5000
+    min: 1
+  objectives: 1
+  partial_evaluation: null
+  recommended_budget:
+    max: 10000000000
+    min: 100
+  references: null
+  source: null
+  tags:
+  - Evolutionary
+  - Gradient-free
+  - Anytime
+  type: algorithm
+  variable_types:
+  - description: null
+    supports: default
+    type: integer
+impl_integeres:
+  description: A Python implementation of NIES
+  language: python
+  links:
+  - type: source code
+    url: https://github.com/jacobdenobel/integer-es
+  name: impl_integeres
+  requirements: null
+  type: implementation
