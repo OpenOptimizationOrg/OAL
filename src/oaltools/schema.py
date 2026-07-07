@@ -125,7 +125,7 @@ class Algorithm(Thing):
         return hash((self.type, self.name))
 
 recommended_tags = [
-    {"performance" : {"Anytime", "Non-Anytime"}},
+    {"performance" : {"Anytime", "Budget-Aware"}},
     {"execution" : {"Parallel", "Sequential", "Expensive"}},
     {"methodology" : {"Gradient-based", "Gradient-free", "Surrogate Model", "Covariance Update", "Population-based", "Single Solution"}},
     {"families" : {"Evolutionary", "Bayesian Optimization", "Simulated Annealing", "Particle Swarm Optimization"}},
