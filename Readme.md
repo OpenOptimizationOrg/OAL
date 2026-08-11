@@ -1,1 +1,0 @@
-# OAL - Optimisation algorithm library
