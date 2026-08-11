@@ -9,7 +9,7 @@ In addition to the algorithm collection of OAL, we are also working on libraries
 Finally, an overview of the different projects is available [here](https://openoptimizationorg.github.io/Overview/).
 
 ## How to add algorithms
-Contributions and corrections are very welcome, through pull requests, issue reporting, or email (see [contact](contact)). 
+Contributions and corrections are very welcome, through pull requests, issue reporting, or email (see [contact](#contact)). 
 
 ## How to contribute to the project
 Want to get involved to make OAL even better? Any help is welcome! 
@@ -21,7 +21,7 @@ We need help to
 
 Finally, you are also very welcome to propose your own ideas to make OAL better, and work on those. 
 
-To get involved, just send an email (see [contact](contact)), or talk to any of us. 
+To get involved, just send an email (see [contact](#contact)), or talk to any of us. 
 
 ## How to cite 
 
