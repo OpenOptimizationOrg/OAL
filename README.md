@@ -28,9 +28,9 @@ To get involved, just send an email (see [contact](#contact)), or talk to any of
 ```
 @misc{oal26,
   title = {{OAL} – Optimisation algorithm library},
-  author = {Koen van der Blom and Carola Doerr and Olaf Mersmann and Boris Naujoks and Elena Raponi and Diederick Vermetten and Vanessa Volz and others},
+  author = {Koen van der Blom and Diederick Vermetten and Vanessa Volz},
   year = {2026},
-  note = {\url{https://openoptimizationorg.github.io/OAL/} (last accessed 2026-08-11)}
+  note = {\url{https://openoptimizationorg.github.io/OAL/}}
 }
 ```
 
