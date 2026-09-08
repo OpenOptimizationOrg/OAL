@@ -1,50 +1,122 @@
-alg_nies:
-  can_evaluate_objectives_independently: null
-  code_examples: null
-  constraint_types:
-  - description: null
-    equality: null
-    hard: null
-    supports: null
-    type: box
-  description: A natural-gradient based evolutionary algorithm for integer-space
-    optimization
-  dynamics: null
-  fidelity_levels: null
-  implementations:
-  - impl_integeres
-  long_name: Natural Integer Evolutionary Strategies
-  modality_types:
-  - description: null
-    supports: default
-    type: unimodal
-  name: NIES
-  noise: null
-  number_variables:
-    max: 5000
-    min: 1
-  objectives: 1
-  partial_evaluation: null
-  recommended_budget:
-    max: 10000000000
-    min: 100
-  references: null
-  source: null
-  tags:
-  - Evolutionary
-  - Gradient-free
-  - Anytime
+alg_mies:
   type: algorithm
+  name: MIES
+  long_name: null
+  description: null
+  tags:
+    - noisy-evaluations
+    - multiple-fidelities
+    - dynamic-objective-functions
+    - Sequential
+    - partial-evaluations
+    - Evolutionary
+    - independent-objective-evaluations
+    - Population-based
+    - multimodal
+  references: null
+  implementations: null
+  objectives: null
+  recommended_budget:
+    min: 100
+    max: 10000000000
+  number_variables:
+    min: 1
+    max: 5000
   variable_types:
-  - description: null
-    supports: default
-    type: integer
-impl_integeres:
-  description: A Python implementation of NIES
-  language: python
-  links:
-  - type: source code
-    url: https://github.com/jacobdenobel/integer-es
-  name: impl_integeres
-  requirements: null
+    -
+      type: integer
+      supports: default
+      description: null
+    -
+      type: binary
+      supports: default
+      description: null
+    -
+      type: continuous
+      supports: default
+      description: null
+    -
+      type: categorical
+      supports: default
+      description: null
+  constraint_types: []
+  dynamics: null
+  noise: null
+  partial_evaluation:
+    supports: no
+    description: Not supported
+  can_evaluate_objectives_independently:
+    supports: no
+    description: Not supported
+  modality_types: null
+  fidelity_levels: null
+  code_examples: null
+  source: null
+alg_cma_es:
+  type: algorithm
+  name: CMA-ES
+  long_name: null
+  description: "pycma is a Python implementation of CMA-ES and some related numerical optimization tools.\n\nThe CMA-ES (Covariance Matrix Adaptation Evolution Strategy) is a randomized derivative-free numerical optimization algorithm for difficult (non-convex, ill-conditioned, multi-modal, rugged, noisy) optimization problems in continuous and mixed-integer search spaces. This package provides an implementation of the CMA-ES algorithm that includes the handling of\n* bound constraints via the 'bounds' = [lower, upper] option or the cma.BoundDomainTransform wrapper\n* linear and nonlinear constraints via the constraints argument to fmin2 or fmin_con2\n* noise via noise_handler=True as argument to fmin2\n* integer variables for mixed-integer problems via the 'integer_variables'=index_list option\n\nOther relevant information: There are plenty of other variants of CMA-ES"
+  tags:
+    - Parallel
+    - Anytime
+    - noisy-evaluations
+    - multiple-fidelities
+    - Gradient-free
+    - dynamic-objective-functions
+    - partial-evaluations
+    - Evolutionary
+    - independent-objective-evaluations
+    - Population-based
+    - Surrogate-based
+    - multimodal
+  references: null
+  implementations:
+    - impl_cma_es
+  objectives: null
+  recommended_budget:
+    min: 7
+    max: 10
+  number_variables:
+    min: 40
+    max: 40
+  variable_types:
+    -
+      type: continuous
+      supports: default
+      description: null
+  constraint_types:
+    -
+      type: box
+      supports: conditional
+      hard: null
+      equality: null
+      description: null
+    -
+      type: linear
+      supports: conditional
+      hard: null
+      equality: null
+      description: null
+  dynamics: null
+  noise: null
+  partial_evaluation:
+    supports: no
+    description: Not supported
+  can_evaluate_objectives_independently:
+    supports: no
+    description: Not supported
+  modality_types: null
+  fidelity_levels: null
+  code_examples: null
+  source: null
+impl_cma_es:
   type: implementation
+  name: CMA-ES implementation
+  description: "pycma is a Python implementation of CMA-ES and some related numerical optimization tools.\n\nThe CMA-ES (Covariance Matrix Adaptation Evolution Strategy) is a randomized derivative-free numerical optimization algorithm for difficult (non-convex, ill-conditioned, multi-modal, rugged, noisy) optimization problems in continuous and mixed-integer search spaces. This package provides an implementation of the CMA-ES algorithm that includes the handling of\n* bound constraints via the 'bounds' = [lower, upper] option or the cma.BoundDomainTransform wrapper\n* linear and nonlinear constraints via the constraints argument to fmin2 or fmin_con2\n* noise via noise_handler=True as argument to fmin2\n* integer variables for mixed-integer problems via the 'integer_variables'=index_list option\n\nOther relevant information: There are plenty of other variants of CMA-ES"
+  links:
+    -
+      type: source code
+      url: "https://github.com/CMA-ES/pycma"
+  language: Python
+  requirements: python

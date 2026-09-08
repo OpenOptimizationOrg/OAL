@@ -1,6 +1,6 @@
 <section class="table-shell">
     <div class="table-toolbar">
-        <details class="tag-toolbar-disclosure" open><summary class="toolbar-title">Filter By Tags</summary><div class="tag-toolbar-actions"><button type="button" class="toolbar-btn" id="clear-tag-filter">Clear tag filter</button><span class="tag-filter-status" id="active-tag-filter">No active tag filter</span></div><div class="tag-groups"><section class="tag-group"><h4 class="tag-group-title">Performance</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Anytime">Anytime</button></div></section><section class="tag-group"><h4 class="tag-group-title">Methodology</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Gradient-free">Gradient-free</button></div></section><section class="tag-group"><h4 class="tag-group-title">Families</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Evolutionary">Evolutionary</button></div></section></div></details>
+        <details class="tag-toolbar-disclosure" open><summary class="toolbar-title">Filter By Tags</summary><div class="tag-toolbar-actions"><button type="button" class="toolbar-btn" id="clear-tag-filter">Clear tag filter</button><span class="tag-filter-status" id="active-tag-filter">No active tag filter</span></div><div class="tag-groups"><section class="tag-group"><h4 class="tag-group-title">Performance</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Anytime">Anytime</button></div></section><section class="tag-group"><h4 class="tag-group-title">Execution</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Parallel">Parallel</button><button type="button" class="tag-filter-chip" data-tag="Sequential">Sequential</button></div></section><section class="tag-group"><h4 class="tag-group-title">Methodology</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Gradient-free">Gradient-free</button><button type="button" class="tag-filter-chip" data-tag="Population-based">Population-based</button></div></section><section class="tag-group"><h4 class="tag-group-title">Families</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="Evolutionary">Evolutionary</button></div></section><section class="tag-group"><h4 class="tag-group-title">Other</h4><div class="tag-group-chips"><button type="button" class="tag-filter-chip" data-tag="dynamic-objective-functions">dynamic-objective-functions</button><button type="button" class="tag-filter-chip" data-tag="independent-objective-evaluations">independent-objective-evaluations</button><button type="button" class="tag-filter-chip" data-tag="multimodal">multimodal</button><button type="button" class="tag-filter-chip" data-tag="multiple-fidelities">multiple-fidelities</button><button type="button" class="tag-filter-chip" data-tag="noisy-evaluations">noisy-evaluations</button><button type="button" class="tag-filter-chip" data-tag="partial-evaluations">partial-evaluations</button><button type="button" class="tag-filter-chip" data-tag="Surrogate-based">Surrogate-based</button></div></section></div></details>
         <details class="column-toolbar-disclosure">
             <summary class="toolbar-title">Toggle Visible Columns</summary>
             <div class="toolbar-actions">
@@ -40,24 +40,46 @@
   </thead>
   <tbody>
     <tr>
-      <td>alg_nies</td>
-      <td>NIES</td>
-      <td>1</td>
-      <td>integer</td>
+      <td>alg_mies</td>
+      <td>MIES</td>
+      <td></td>
+      <td>binary | integer | continuous | categorical</td>
       <td>1–5000</td>
-      <td>box</td>
       <td></td>
       <td></td>
-      <td>unimodal</td>
       <td></td>
       <td></td>
+      <td>no</td>
+      <td>no</td>
       <td>100–10000000000</td>
       <td></td>
-      <td>Natural Integer Evolutionary Strategies</td>
-      <td>A natural-gradient based evolutionary algorithm for integer-space optimization</td>
-      <td><button type="button" class="table-tag" data-tag="Anytime">Anytime</button> <button type="button" class="table-tag" data-tag="Evolutionary">Evolutionary</button> <button type="button" class="table-tag" data-tag="Gradient-free">Gradient-free</button></td>
       <td></td>
-      <td>impl_integeres</td>
+      <td></td>
+      <td><button type="button" class="table-tag" data-tag="dynamic-objective-functions">dynamic-objective-functions</button> <button type="button" class="table-tag" data-tag="Evolutionary">Evolutionary</button> <button type="button" class="table-tag" data-tag="independent-objective-evaluations">independent-objective-evaluations</button> <button type="button" class="table-tag" data-tag="multimodal">multimodal</button> <button type="button" class="table-tag" data-tag="multiple-fidelities">multiple-fidelities</button> <button type="button" class="table-tag" data-tag="noisy-evaluations">noisy-evaluations</button> <button type="button" class="table-tag" data-tag="partial-evaluations">partial-evaluations</button> <button type="button" class="table-tag" data-tag="Population-based">Population-based</button> <button type="button" class="table-tag" data-tag="Sequential">Sequential</button></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>alg_cma_es</td>
+      <td>CMA-ES</td>
+      <td></td>
+      <td>continuous</td>
+      <td>40</td>
+      <td>box | linear</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>no</td>
+      <td>no</td>
+      <td>7–10</td>
+      <td></td>
+      <td></td>
+      <td>pycma is a Python implementation of CMA-ES and some related numerical optimization tools.\n\nThe CMA-ES (Covariance Matrix Adaptation Evolution Strategy) is a randomized derivative-free numerical optimization algorithm for difficult (non-convex, ill-conditioned, multi-modal, rugged, noisy) optimization problems in continuous and mixed-integer search spaces. This package provides an implementation of the CMA-ES algorithm that includes the handling of\n* bound constraints via the 'bounds' = [lower, upper] option or the cma.BoundDomainTransform wrapper\n* linear and nonlinear constraints via the constraints argument to fmin2 or fmin_con2\n* noise via noise_handler=True as argument to fmin2\n* integer variables for mixed-integer problems via the 'integer_variables'=index_list option\n\nOther relevant information: There are plenty of other variants of CMA-ES</td>
+      <td><button type="button" class="table-tag" data-tag="Anytime">Anytime</button> <button type="button" class="table-tag" data-tag="dynamic-objective-functions">dynamic-objective-functions</button> <button type="button" class="table-tag" data-tag="Evolutionary">Evolutionary</button> <button type="button" class="table-tag" data-tag="Gradient-free">Gradient-free</button> <button type="button" class="table-tag" data-tag="independent-objective-evaluations">independent-objective-evaluations</button> <button type="button" class="table-tag" data-tag="multimodal">multimodal</button> <button type="button" class="table-tag" data-tag="multiple-fidelities">multiple-fidelities</button> <button type="button" class="table-tag" data-tag="noisy-evaluations">noisy-evaluations</button> <button type="button" class="table-tag" data-tag="Parallel">Parallel</button> <button type="button" class="table-tag" data-tag="partial-evaluations">partial-evaluations</button> <button type="button" class="table-tag" data-tag="Population-based">Population-based</button> <button type="button" class="table-tag" data-tag="Surrogate-based">Surrogate-based</button></td>
+      <td></td>
+      <td>CMA-ES implementation</td>
       <td></td>
       <td></td>
     </tr>
