@@ -1,4 +1,4 @@
-# OPL - Optimisation algorithm library
+# OAL - Optimisation algorithm library
 The optimisation algorithm library aims to make optimisation algorithms easier to find by collecting them, annotated with information about high level properties they can handle like the type of decision variables, number of objectives, and the presence of constraints. Where available references to papers describing the algorithm and implementations are included. All collected algorithms are available through a searchable [website](https://openoptimizationorg.github.io/OAL/).
 
 ## Other libraries: Problems and features
